@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace ProjetConsole
 {
 
-    public class Métier
+    public class Métiers
     {
         #region Propriétés
-        public String NomPoste { get; }
+        public String Intitulé { get; }
         public Activité ActivitéProduction { get; }
         #endregion
 
@@ -21,15 +21,16 @@ namespace ProjetConsole
     public class Personne
     {
         #region Propriétés
+        public string Code { get; }
         public string Nom { get; }
         public string Prénom { get; }
-        public Métier Poste { get; }
+        public Métiers Métier { get; }
 
         #endregion
 
         #region Constructeur
 
-        public Personne(string nom, string prénom, Métier métier)
+        public Personne(string nom, string prénom, Métiers métier)
         {
             Nom = Nom;
             Prénom = prénom;
