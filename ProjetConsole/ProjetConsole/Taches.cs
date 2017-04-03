@@ -30,7 +30,7 @@ namespace ProjetConsole
         #endregion
     }
 
-    public class TachesProduction :Taches
+    public class TachesProduction : Taches
     {
         #region Propriétés
         public TimeSpan DuréeTravailPrévue { get; }
@@ -44,11 +44,11 @@ namespace ProjetConsole
                 else
                     return false;
             }
-        } 
+        }
         #endregion
     }
 
-    public class TachesAnnexes :Taches
+    public class TachesAnnexes : Taches
     {
         #region Propriétés
         public TimeSpan DuréeTravailRéaliséMensuelle
@@ -63,6 +63,6 @@ namespace ProjetConsole
                     DuréeTravailRéaliséMensuelle = TimeSpan.Zero;
             }
         }
-            #endregion
-        }
+        #endregion
+    }
 }
