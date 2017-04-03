@@ -79,6 +79,7 @@ namespace ProjetConsole
 
     public class TachesAnnexes : Taches
     {
+        public static int _idTache = 0;
         #region Propriétés
         public int DuréeTravailRéaliséMensuelle
         {
@@ -98,6 +99,7 @@ namespace ProjetConsole
         public TachesAnnexes() :base()
         {
             DuréeTravailRéaliséMensuelle = 0;
+            _idTache++;
         }
         #endregion
     }

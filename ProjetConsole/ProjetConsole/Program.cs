@@ -33,7 +33,7 @@ namespace ProjetConsole
             Personnes Pers9 = new Personnes("NP", "Nino", "PALMER", TES);
             #endregion
 
-            #region Initialisation Tâches de production
+            #region Initialisation Tâches de annexe
             Taches T1 = new TachesAnnexes {};
             #endregion
             Console.WriteLine(T1.DuréeTravailRéalisé);
