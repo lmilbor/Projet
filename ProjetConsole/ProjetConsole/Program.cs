@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjetConsole
@@ -29,10 +30,19 @@ namespace ProjetConsole
             Personnes Pers6 = new Personnes("RB", "Roseline", "BEAUMONT", DEV);
             Personnes Pers7 = new Personnes("MW", "Marguerite", "WEBER", DES);
             Personnes Pers8 = new Personnes("HK", "Hilaire", "KLEIN", TES);
-            Personnes Pers9 = new Personnes("NP", "Nino", "PALMER", TES); 
+            Personnes Pers9 = new Personnes("NP", "Nino", "PALMER", TES);
             #endregion
 
-            Console.WriteLine(Pers1.Métier.ActivitéProduction);
+            #region Initialisation Tâches de production
+            Taches T1 = new TachesAnnexes {};
+            #endregion
+            Console.WriteLine(T1.DuréeTravailRéalisé);
+            Thread.Sleep(3000);        
+            #region Initialisation Tâches Annexes
+
+            #endregion
+
+            Console.WriteLine();
             Console.ReadKey();
         }
     }
