@@ -30,18 +30,18 @@ namespace ProjetConsole
 
         #region Méthodes
 
-        public void ChargerFichier (string texte)
-        {
-            string[] fichier = File.ReadAllLines(texte);
-            string[] temp;
-            for (int i = 1; i < fichier.Length; i++)
-            {
-                temp = fichier[i].Split('\t');
-                // TODO numéro de tache
-                Version.Add(temp[1]);
-                ListeTaches.Add(new TachesProduction());
-            }
-        }
+        //public void ChargerFichier (string texte)
+        //{
+        //    string[] fichier = File.ReadAllLines(texte);
+        //    string[] temp;
+        //    for (int i = 1; i < fichier.Length; i++)
+        //    {
+        //        temp = fichier[i].Split('\t');
+        //        // TODO numéro de tache
+        //        Version.Add(temp[1]);
+        //        ListeTaches.Add(new TachesProduction());
+        //    }
+        //}
 
         #endregion
     }

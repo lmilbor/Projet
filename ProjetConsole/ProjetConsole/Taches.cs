@@ -11,6 +11,7 @@ namespace ProjetConsole
         #region Propriétés
         public int DuréeTravailRéalisé { get; }
         public string LibTache { get; set; }
+        public string Code { get; set; }
         #endregion
 
         #region Constructeurs
@@ -18,9 +19,9 @@ namespace ProjetConsole
         {
             DuréeTravailRéalisé = 0;
         }
- 
+
         #endregion
-        
+
         #region Méthodes
         public void Annulation()
         {
@@ -35,16 +36,16 @@ namespace ProjetConsole
         #region Propriétés
         public DateTime DateDébut { get; }
         public int DuréeTravailPrévue { get; }
-        public int DuréeTravailRéstante
+        public double DuréeTravailRéstante
         {
             get
             {
                 return DuréeTravailRéstante;
-                    }
-            
+            }
+
             set
             {
-                DuréeTravailRéstante = DateDébut - DateTime.Now; // TODO à Corriger
+                DuréeTravailRéstante = (DateDébut - DateTime.Now).TotalDays; // TODO à Corriger
             }
         }
         public bool TacheTerminée
@@ -65,7 +66,7 @@ namespace ProjetConsole
         /// </summary>
         /// <param name="duréePrévue"></param>
         /// <param name="duréeRéstante"></param>
-        public TachesProduction(int duréePrévue, int duréeRéstante, DateTime dateInitiation) :base()
+        public TachesProduction(int duréePrévue, int duréeRéstante, DateTime dateInitiation) : base()
         {
             DuréeTravailPrévue = duréePrévue;
             DuréeTravailRéstante = duréeRéstante;
@@ -93,11 +94,25 @@ namespace ProjetConsole
         #endregion
 
         #region Constructeur
-        public TachesAnnexes() :base()
+        public TachesAnnexes() : base()
         {
             DuréeTravailRéaliséMensuelle = 0;
             _idTache++;
+            Code = string.Format("AN" + _idTache);
         }
+        public TachesAnnexes(string libellé) :this()
+        {
+            LibTache = libellé;
+        }
+        #endregion
+
+        #region Méthodes
+
+        public override string ToString()
+        {
+            return string.Format("Libellé : {0}", LibTache);
+        }
+
         #endregion
     }
 }
