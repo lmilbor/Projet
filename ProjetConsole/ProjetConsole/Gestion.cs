@@ -41,7 +41,7 @@ namespace ProjetConsole
         #endregion
     }
 
-    public class GestionVersion :Gestion
+    public class GestionVersion : Gestion
     {
         #region Champs Privés
 
@@ -58,5 +58,24 @@ namespace ProjetConsole
         #region Méthodes
 
         #endregion
-        }
+    }
+
+    public class GestionTache : Gestion
+    {
+        #region Champs Privés
+
+        #endregion
+
+        #region Propriétés
+        public DateTime DuréeRestante { get; set; }
+        #endregion
+
+        #region Constructeurs
+        public DuréeRestante
+        #endregion
+
+        #region Méthodes
+
+        #endregion
+    }
 }
