@@ -39,7 +39,18 @@ namespace ProjetConsole
     {
         #region Propriétés
         public int DuréeTravailPrévue { get; }
-        public int DuréeTravailRéstante { get; set; }
+        public int DuréeTravailRéstante
+        {
+            get
+            {
+                return DuréeTravailRéstante;
+                    }
+            
+            set
+            {
+                DuréeTravailRéstante = DateDébut - DateTime.Now; // TODO à Corriger
+            }
+        }
         public bool TacheTerminée
         {
             get
