@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
+
     [Flags]
-    public enum  Activité
+    public enum Activité
     {
         Aucun = 0,
         DBE = 1,
@@ -21,5 +22,16 @@ namespace ProjetConsole
         RPT = 256,
         TES = 512,
         GDP = 1024
+    }
+    public class Métiers
+    {
+        #region Propriétés
+        public String Intitulé { get; set; }
+        public Activité ActivitéProduction { get; set; }
+        #endregion
+
+        #region Constructeurs
+
+        #endregion
     }
 }

@@ -19,7 +19,7 @@ namespace ProjetConsole
 
         public DateTime DuréePrévue { get; }
 
-        public DateTime DuréePassée { get {return DateTime  - DateDébut; } }
+        //public DateTime DuréePassée { get {return DateTime  - DateDébut; } } //TODO A corriger
 
         public DateTime DuréeRéstante { get; set; }
 

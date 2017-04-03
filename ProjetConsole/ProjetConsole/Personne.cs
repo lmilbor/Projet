@@ -6,18 +6,6 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-
-    public class Métiers
-    {
-        #region Propriétés
-        public String Intitulé { get; }
-        public Activité ActivitéProduction { get; }
-        #endregion
-
-        #region Constructeurs
-
-        #endregion
-    }
     public class Personne
     {
         #region Propriétés
@@ -30,11 +18,12 @@ namespace ProjetConsole
 
         #region Constructeur
 
-        public Personne(string nom, string prénom, Métiers métier)
+        public Personne(string code, string prénom, string nom, Métiers métier)
         {
-            Nom = Nom;
+            Code = code;
+            Nom = nom;
             Prénom = prénom;
-            Poste = métier;
+            Métier = métier;
         }
 
         #endregion
@@ -42,7 +31,7 @@ namespace ProjetConsole
         #region Méthodes
         public override string ToString()
         {
-            return string.Format("{0} {1} {2}", Nom, Prénom, Poste.NomPoste);
+            return string.Format("{0} {1} {2} {3}",Code, Prénom, Nom, Métier.Intitulé);
         }
         #endregion
 

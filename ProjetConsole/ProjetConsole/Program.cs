@@ -10,6 +10,14 @@ namespace ProjetConsole
     {
         static void Main(string[] args)
         {
+            Métiers ANA = new Métiers
+            {
+                Intitulé = "Analyste",
+                ActivitéProduction = Activité.DBE | Activité.ARF | Activité.ANF
+
+            };
+            Personne Pers1 = new Personne("GL", "Genevieve", "LECLERCQ", ANA);
+            Console.WriteLine(Pers1.Métier.ActivitéProduction);
             Console.ReadKey();
         }
     }
