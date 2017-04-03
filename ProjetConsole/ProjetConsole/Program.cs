@@ -13,13 +13,12 @@ namespace ProjetConsole
         {
 
             #region Initialisation Métiers
-            Métiers ANA = new Métiers("Analyste", Activité.DBE | Activité.ARF | Activité.ANF);
-            Métiers CDP = new Métiers("Chef de projet", Activité.ARF | Activité.ANF | Activité.ART | Activité.TES | Activité.GDP);
-            Métiers DEV = new Métiers("Développeur", Activité.ANF | Activité.ART | Activité.ANT | Activité.DEV | Activité.TES);
-            Métiers DES = new Métiers("Designer", Activité.ANF | Activité.DES | Activité.INF);
-            Métiers TES = new Métiers("Testeur", Activité.RPT | Activité.TES);
+            Métiers ANA = new Métiers("Analyste", "ANA", Activité.DBE | Activité.ARF | Activité.ANF);
+            Métiers CDP = new Métiers("Chef de projet", "CDP", Activité.ARF | Activité.ANF | Activité.ART | Activité.TES | Activité.GDP);
+            Métiers DEV = new Métiers("Développeur", "DEV", Activité.ANF | Activité.ART | Activité.ANT | Activité.DEV | Activité.TES);
+            Métiers DES = new Métiers("Designer", "DES", Activité.ANF | Activité.DES | Activité.INF);
+            Métiers TES = new Métiers("Testeur", "TES", Activité.RPT | Activité.TES);
             #endregion
-
 
             #region Initialisation Personnes
             Personnes Pers1 = new Personnes("GL", "Genevieve", "LECLERCQ", ANA);
@@ -31,6 +30,10 @@ namespace ProjetConsole
             Personnes Pers7 = new Personnes("MW", "Marguerite", "WEBER", DES);
             Personnes Pers8 = new Personnes("HK", "Hilaire", "KLEIN", TES);
             Personnes Pers9 = new Personnes("NP", "Nino", "PALMER", TES);
+            #endregion
+
+            #region chargement de fichier
+
             #endregion
 
             #region Initialisation Tâches de production

@@ -28,12 +28,14 @@ namespace ProjetConsole
         #region Propriétés
         public String Intitulé { get; set; }
         public Activité ActivitéProduction { get; set; }
+        public string Abréviation { get; set; }
         #endregion
 
         #region Constructeurs
-        public Métiers(string intitulé, Activité activitéProduction)
+        public Métiers(string intitulé, string abréviation, Activité activitéProduction)
         {
             Intitulé = intitulé;
+            Abréviation = abréviation;
             ActivitéProduction = activitéProduction;
         }
 
