@@ -23,7 +23,7 @@ namespace ProjetConsole
 
         public DateTime DuréeRéstante { get; set; }
 
-        public Personne Ressource { get; set; }
+        public Personnes Ressource { get; set; }
 
         #endregion
 
@@ -77,9 +77,5 @@ namespace ProjetConsole
         #region Méthodes
 
         #endregion
-    }
-    public class Tache
-    {
-        //TODO
     }
 }
