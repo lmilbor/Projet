@@ -78,8 +78,4 @@ namespace ProjetConsole
 
         #endregion
     }
-    public class Tache
-    {
-        //TODO
-    }
 }
