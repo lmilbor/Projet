@@ -19,7 +19,7 @@ namespace ProjetConsole
 
         public DateTime DuréePrévue { get; }
 
-        public DateTime DuréeRéalisée { get; }
+        public DateTime DuréePassée { get {return DateTime  - DateDébut; } }
 
         public DateTime DuréeRéstante { get; set; }
 
@@ -41,7 +41,7 @@ namespace ProjetConsole
         #endregion
     }
 
-    public class GestionVersion :Gestion
+    public class GestionVersion : Gestion
     {
         #region Champs Privés
 
@@ -58,5 +58,28 @@ namespace ProjetConsole
         #region Méthodes
 
         #endregion
+    }
+    public class GestionTache :Gestion
+    {
+        #region Champs Privés
+
+        #endregion
+
+        #region Propriétés
+        public DateTime DuréeRestante { get; set; }
+        public bool TacheFinie { get; }
+        #endregion
+
+        #region Constructeurs
+
+        #endregion
+
+        #region Méthodes
+
+        #endregion
+    }
+    public class Tache
+    {
+        //TODO
     }
 }
