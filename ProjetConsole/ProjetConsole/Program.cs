@@ -10,22 +10,27 @@ namespace ProjetConsole
     {
         static void Main(string[] args)
         {
-            // Initialisation des métiers.
+
+            #region Initialisation Métiers
             Métiers ANA = new Métiers("Analyste", Activité.DBE | Activité.ARF | Activité.ANF);
             Métiers CDP = new Métiers("Chef de projet", Activité.ARF | Activité.ANF | Activité.ART | Activité.TES | Activité.GDP);
             Métiers DEV = new Métiers("Développeur", Activité.ANF | Activité.ART | Activité.ANT | Activité.DEV | Activité.TES);
             Métiers DES = new Métiers("Designer", Activité.ANF | Activité.DES | Activité.INF);
             Métiers TES = new Métiers("Testeur", Activité.RPT | Activité.TES);
+            #endregion
 
+
+            #region Initialisation Personnes
             Personnes Pers1 = new Personnes("GL", "Genevieve", "LECLERCQ", ANA);
             Personnes Pers2 = new Personnes("AL", "Angèle", "FERRAND", ANA);
-            Personnes Pers3 = new Personnes("BN", "Genevieve", "LECLERCQ", ANA);
-            Personnes Pers4 = new Personnes("RF", "Genevieve", "LECLERCQ", ANA);
-            Personnes Pers5 = new Personnes("LB", "Genevieve", "LECLERCQ", ANA);
-            Personnes Pers6 = new Personnes("RB", "Genevieve", "LECLERCQ", ANA);
-            Personnes Pers7 = new Personnes("MW", "Genevieve", "LECLERCQ", ANA);
-            Personnes Pers8 = new Personnes("HK", "Genevieve", "LECLERCQ", ANA);
-            Personnes Pers9 = new Personnes("NP", "Genevieve", "LECLERCQ", ANA);
+            Personnes Pers3 = new Personnes("BN", "Balthazar","NORMAND", CDP);
+            Personnes Pers4 = new Personnes("RF", "Raymond", "FISHER", DEV);
+            Personnes Pers5 = new Personnes("LB", "Lucien", "BUTLER", DEV);
+            Personnes Pers6 = new Personnes("RB", "Roseline", "BEAUMONT", DEV);
+            Personnes Pers7 = new Personnes("MW", "Marguerite", "WEBER", DES);
+            Personnes Pers8 = new Personnes("HK", "Hilaire", "KLEIN", TES);
+            Personnes Pers9 = new Personnes("NP", "Nino", "PALMER", TES); 
+            #endregion
 
             Console.WriteLine(Pers1.Métier.ActivitéProduction);
             Console.ReadKey();
