@@ -10,15 +10,11 @@ namespace ProjetConsole
     {
         #region Propriétés
         public DateTime DateDébut { get; }
-        public TimeSpan DuréeTravailRéalisé { get; }
+        public TimeSpan DuréeTravailRéalisée { get; } //TODO A corriger
         #endregion
 
         #region Constructeurs
-        public Taches()
-        {
-            DateDébut = DateTime.Today;
-            DuréeTravailRéalisé = TimeSpan.Zero;
-        }
+
         #endregion
 
         #region Méthodes
@@ -30,7 +26,7 @@ namespace ProjetConsole
         #endregion
     }
 
-    public class TachesProduction :Taches
+    public class TachesProductions : Taches
     {
         #region Propriétés
         public TimeSpan DuréeTravailPrévue { get; }
@@ -44,25 +40,16 @@ namespace ProjetConsole
                 else
                     return false;
             }
-        } 
+        }
         #endregion
     }
 
-    public class TachesAnnexes :Taches
+    public class TachesAnnexes : Taches
     {
         #region Propriétés
-        public TimeSpan DuréeTravailRéaliséMensuelle
+        public TachesAnnexes()
         {
-            get
-            {
-                return DuréeTravailRéaliséMensuelle;
-            }
-            set
-            {
-                if (DateTime.Today == new DateTime(DateTime.Today.Year, DateTime.Today.Month, 01, 00, 00, 00)) // Si on est le 1er du mois à 00h00min00sec alors DuréeRéaliséeMensuel = 0.
-                    DuréeTravailRéaliséMensuelle = TimeSpan.Zero;
-            }
+            Dat
         }
-            #endregion
-        }
+    }
 }
