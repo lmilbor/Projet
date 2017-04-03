@@ -48,7 +48,7 @@ namespace ProjetConsole
         #endregion
 
         #region Propriétés
-
+        public Dictionary<double, List<DateTime>> Version { get; set; } //TODO pour l'instant on affiche que des date -> qui à participé, etc.
         #endregion
 
         #region Constructeurs
@@ -58,5 +58,5 @@ namespace ProjetConsole
         #region Méthodes
 
         #endregion
-        }
+    }
 }
