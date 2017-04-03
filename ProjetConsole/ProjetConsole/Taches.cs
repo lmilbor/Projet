@@ -9,7 +9,7 @@ namespace ProjetConsole
     public abstract class Taches
     {
         #region Propriétés
-        public int DuréeTravailRéalisé { get; }
+        public double DuréeTravailRéalisé { get; }
         public string LibTache { get; set; }
         public string Code { get; set; }
         #endregion
@@ -35,7 +35,7 @@ namespace ProjetConsole
     {
         #region Propriétés
         public DateTime DateDébut { get; }
-        public int DuréeTravailPrévue { get; }
+        public double DuréeTravailPrévue { get; }
         public double DuréeTravailRéstante
         {
             get
@@ -45,7 +45,7 @@ namespace ProjetConsole
 
             set
             {
-                DuréeTravailRéstante = (DateDébut - DateTime.Now).TotalDays; // TODO à Corriger
+                DuréeTravailRéstante = (DateDébut - DateTime.Now).TotalDays; // TODO à Corriger Attention au arrondi du double ( 0 != 0)
             }
         }
         public bool TacheTerminée
@@ -79,7 +79,7 @@ namespace ProjetConsole
     {
         public static int _idTache = 0;
         #region Propriétés
-        public int DuréeTravailRéaliséMensuelle
+        public double DuréeTravailRéaliséMensuelle
         {
             get
             {
