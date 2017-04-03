@@ -21,7 +21,11 @@ namespace ProjetConsole
         #endregion
 
         #region Constructeur
-
+        public DAL(List<Métiers> listeMétier, List<Personnes> listePersonne)
+        {
+            ListeMétiers = listeMétier;
+            ListePersonnes = listePersonne;
+        }
         #endregion
 
         #region Méthodes
@@ -30,17 +34,12 @@ namespace ProjetConsole
         {
             string[] fichier = File.ReadAllLines(texte);
             string[] temp;
-            for (int i = 0; i < fichier.Length; i++)
+            for (int i = 1; i < fichier.Length; i++)
             {
                 temp = fichier[i].Split('\t');
                 // TODO numéro de tache
                 Version.Add(temp[1]);
-
-                ListeMétiers.Add();
-
-                ListePersonnes.Add();
-
-                ListeTaches.Add();
+                ListeTaches.Add(new TachesProduction());
             }
         }
 

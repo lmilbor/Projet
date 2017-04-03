@@ -9,21 +9,16 @@ namespace ProjetConsole
     public abstract class Taches
     {
         #region Propriétés
-        public DateTime DateDébut { get; }
         public int DuréeTravailRéalisé { get; }
+        public string LibTache { get; set; }
         #endregion
 
         #region Constructeurs
         public Taches()
         {
-            DateDébut = DateTime.Today;
             DuréeTravailRéalisé = 0;
         }
-
-        public Taches(DateTime dateInitiation) :this()
-        {
-            DateDébut = dateInitiation;
-        }
+ 
         #endregion
         
         #region Méthodes
@@ -38,6 +33,7 @@ namespace ProjetConsole
     public class TachesProduction : Taches
     {
         #region Propriétés
+        public DateTime DateDébut { get; }
         public int DuréeTravailPrévue { get; }
         public int DuréeTravailRéstante
         {
@@ -69,10 +65,11 @@ namespace ProjetConsole
         /// </summary>
         /// <param name="duréePrévue"></param>
         /// <param name="duréeRéstante"></param>
-        public TachesProduction(int duréePrévue, int duréeRéstante) :base()
+        public TachesProduction(int duréePrévue, int duréeRéstante, DateTime dateInitiation) :base()
         {
             DuréeTravailPrévue = duréePrévue;
             DuréeTravailRéstante = duréeRéstante;
+            DateDébut = dateInitiation;
         }
         #endregion
     }
