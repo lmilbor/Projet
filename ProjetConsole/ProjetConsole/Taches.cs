@@ -37,6 +37,7 @@ namespace ProjetConsole
 
     public class TachesProduction : Taches
     {
+        public static int _idTacheP = 0;
         #region Propriétés
         public int DuréeTravailPrévue { get; }
         public int DuréeTravailRéstante
@@ -73,13 +74,14 @@ namespace ProjetConsole
         {
             DuréeTravailPrévue = duréePrévue;
             DuréeTravailRéstante = duréeRéstante;
+            _idTacheP++;
         }
         #endregion
     }
 
     public class TachesAnnexes : Taches
     {
-        public static int _idTache = 0;
+        public static int _idTacheA = 0;
         #region Propriétés
         public int DuréeTravailRéaliséMensuelle
         {
@@ -99,7 +101,7 @@ namespace ProjetConsole
         public TachesAnnexes() :base()
         {
             DuréeTravailRéaliséMensuelle = 0;
-            _idTache++;
+            _idTacheA++;
         }
         #endregion
     }
