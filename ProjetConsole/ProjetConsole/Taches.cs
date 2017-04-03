@@ -44,7 +44,7 @@ namespace ProjetConsole
         {
             get
             {
-                if (DuréeTravailRéstante == DateDébut.)
+                if (DuréeTravailRéstante == 0)
                     return true;
                 else
                     return false;
@@ -58,7 +58,7 @@ namespace ProjetConsole
         /// </summary>
         /// <param name="duréePrévue"></param>
         /// <param name="duréeRéstante"></param>
-        public TachesProduction(int duréePrévue, int duréeRéstante)
+        public TachesProduction(int duréePrévue, int duréeRéstante) :base()
         {
             DuréeTravailPrévue = duréePrévue;
             DuréeTravailRéstante = duréeRéstante;
