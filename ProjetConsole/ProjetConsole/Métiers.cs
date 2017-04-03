@@ -31,6 +31,13 @@ namespace ProjetConsole
         #endregion
 
         #region Constructeurs
+        public Métiers(string intitulé, Activité activitéProduction)
+        {
+            Intitulé = intitulé;
+            ActivitéProduction = activitéProduction;
+        }
+
+
 
         #endregion
     }
