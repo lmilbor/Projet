@@ -41,37 +41,18 @@ namespace ProjetConsole
         #endregion
     }
 
-    public class GestionVersion : Gestion
+    public class GestionVersion :Gestion
     {
         #region Champs Privés
 
         #endregion
 
         #region Propriétés
-
+        public Dictionary<double, List<DateTime>> Version { get; set; } //TODO pour l'instant on affiche que des date -> qui à participé, etc.
         #endregion
 
         #region Constructeurs
 
-        #endregion
-
-        #region Méthodes
-
-        #endregion
-    }
-
-    public class GestionTache : Gestion
-    {
-        #region Champs Privés
-
-        #endregion
-
-        #region Propriétés
-        public DateTime DuréeRestante { get; set; }
-        #endregion
-
-        #region Constructeurs
-        public DuréeRestante
         #endregion
 
         #region Méthodes
