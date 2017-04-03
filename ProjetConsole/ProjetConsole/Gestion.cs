@@ -23,7 +23,7 @@ namespace ProjetConsole
 
         public DateTime DuréeRéstante { get; set; }
 
-        public Personne Ressource { get; set; }
+        public Personnes Ressource { get; set; }
 
         #endregion
 

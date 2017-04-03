@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
-    public class Personne
+    public class Personnes
     {
         #region Propriétés
         public string Code { get; }
@@ -18,7 +18,7 @@ namespace ProjetConsole
 
         #region Constructeur
 
-        public Personne(string code, string prénom, string nom, Métiers métier)
+        public Personnes(string code, string prénom, string nom, Métiers métier)
         {
             Code = code;
             Nom = nom;

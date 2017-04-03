@@ -17,7 +17,16 @@ namespace ProjetConsole
             Métiers DES = new Métiers("Designer", Activité.ANF | Activité.DES | Activité.INF);
             Métiers TES = new Métiers("Testeur", Activité.RPT | Activité.TES);
 
-            Personne Pers1 = new Personne("GL", "Genevieve", "LECLERCQ", ANA);
+            Personnes Pers1 = new Personnes("GL", "Genevieve", "LECLERCQ", ANA);
+            Personnes Pers2 = new Personnes("AL", "Angèle", "FERRAND", ANA);
+            Personnes Pers3 = new Personnes("BN", "Genevieve", "LECLERCQ", ANA);
+            Personnes Pers4 = new Personnes("RF", "Genevieve", "LECLERCQ", ANA);
+            Personnes Pers5 = new Personnes("LB", "Genevieve", "LECLERCQ", ANA);
+            Personnes Pers6 = new Personnes("RB", "Genevieve", "LECLERCQ", ANA);
+            Personnes Pers7 = new Personnes("MW", "Genevieve", "LECLERCQ", ANA);
+            Personnes Pers8 = new Personnes("HK", "Genevieve", "LECLERCQ", ANA);
+            Personnes Pers9 = new Personnes("NP", "Genevieve", "LECLERCQ", ANA);
+
             Console.WriteLine(Pers1.Métier.ActivitéProduction);
             Console.ReadKey();
         }
