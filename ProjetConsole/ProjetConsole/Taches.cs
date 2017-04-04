@@ -82,7 +82,7 @@ namespace ProjetConsole
             Code = code;
             Version = version;
             Personne.Add(personne.Code, personne);
-            //Activité = activité;
+            Activité = activité;
             LibTache = libelléTache;
             DateDébut = dateInitiation;
             DuréeTravailPrévue = duréePrévue;

@@ -32,9 +32,10 @@ namespace ProjetConsole
                 return string.Format("Pour la version {0} le retard est de {1}% soit {2} jours de travail.", version, Math.Round(pourcentage-100, 2), -jours);
         }
 
-        public static string DuréeTravailActivité()
+        public static string DuréeTravailActivité(List<TachesProduction> listeTache, string version)
         {
-
+            double jours;
+            jours = listeTache.Where( t => t.Version.CompareTo(version) ==0).Select()
             return "";
         }
     }

@@ -49,9 +49,10 @@ namespace ProjetConsole
             DAL genomica = new DAL(listeMétiers, listePersonnes);
             genomica.ChargerFichier(@"C:\Users\lmilbor\OneDrive\Documents\Support de cours\Projets\Data.txt");
             List<TachesProduction> listeRésultat = new List<TachesProduction>();
-            listeRésultat =  genomica.ListeTaches.Select(t => t.Value).ToList();
-            Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat , MW, "2.00"));
+            listeRésultat = genomica.ListeTaches.Select(t => t.Value).ToList();
+            Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, MW, "2.00"));
             Console.WriteLine(Results.Avancement(listeRésultat, "2.00"));
+            Console.WriteLine(Activités.DBE);
             /*
             #region Initialisation Tâches annexe
             Dictionary<string, TachesAnnexes> tacheAnnexes = new Dictionary<string, TachesAnnexes>();

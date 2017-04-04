@@ -38,7 +38,7 @@ namespace ProjetConsole
             string[] temp;
             int compteur;
             Personnes tempPers = new Personnes();
-            Activités[] tabActivité= { Activités.ANF, Activités.ANF, Activités.ARF, Activités.ART, Activités.Aucun, Activités.DBE, Activités.DES, Activités.DEV, Activités.GDP, Activités.INF, Activités.RPT, Activités.TES};
+            Activités[] tabActivité= { Activités.ANF, Activités.ANT, Activités.ARF, Activités.ART, Activités.Aucun, Activités.DBE, Activités.DES, Activités.DEV, Activités.GDP, Activités.INF, Activités.RPT, Activités.TES};
             for (int i = 1; i < fichier.Length - 1; i++)
             {
                 temp = fichier[i].Split('\t');
