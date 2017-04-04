@@ -10,7 +10,7 @@ namespace ProjetConsole
     {
         #region Propriétés
         /// <summary>
-        /// 
+        /// Définition des variables et propriétés qui constitue la classe ancètre Taches
         /// </summary>
         public double DuréeTravailRéalisé { get; set; }
         public string LibTache { get; set; }
@@ -20,6 +20,7 @@ namespace ProjetConsole
         #endregion
 
         #region Constructeurs
+        // Initialisation de la durée de travail réalisée à 0
         public Taches()
         {
             DuréeTravailRéalisé = 0;
@@ -28,6 +29,7 @@ namespace ProjetConsole
         #endregion
 
         #region Méthodes
+        // Prévision d'une fonction annulation pour une ou plusieurs taches
         public void Annulation()
         {
 
@@ -36,6 +38,7 @@ namespace ProjetConsole
         #endregion
     }
 
+    // Définition de la classe "enfants" TacheProduction et de ses propriétés, suivant le principe de l'héritage
     public class TachesProduction : Taches
     {
         #region Propriétés
@@ -63,7 +66,7 @@ namespace ProjetConsole
         //        else
         //            return false;
         //    }
-        //}
+        //} TODO A revoir!
         #endregion
 
         #region Constructeur
@@ -76,6 +79,8 @@ namespace ProjetConsole
         /// </summary>
         /// <param name="duréePrévue"></param>
         /// <param name="duréeRéstante"></param>
+        
+        // Instancier/créer une nouvelles tache relative à la production nécessite de compléter les champs suivants
         public TachesProduction(string code, string version, Personnes personne, Activités activité, string libelléTache, DateTime dateInitiation, double duréePrévue, double duréeRéalisée, double duréeRéstante) : base()
         {
             Personne = new Dictionary<string, Personnes>();
@@ -92,6 +97,7 @@ namespace ProjetConsole
         #endregion
     }
 
+    // ??
     public class TachesAnnexes : Taches
     {
         public static int _idTache = 0;
@@ -111,6 +117,7 @@ namespace ProjetConsole
         #endregion
 
         #region Constructeur
+        //??
         public TachesAnnexes() : base()
         {
             DuréeTravailRéaliséMensuelle = 0;
@@ -125,6 +132,7 @@ namespace ProjetConsole
 
         #region Méthodes
 
+        // Redéfinition de la méthode string
         public override string ToString()
         {
             return string.Format("Libellé : {0}", LibTache);
