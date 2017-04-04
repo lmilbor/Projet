@@ -9,6 +9,9 @@ namespace ProjetConsole
     public abstract class Taches
     {
         #region Propriétés
+        /// <summary>
+        /// 
+        /// </summary>
         public double DuréeTravailRéalisé { get; set; }
         public string LibTache { get; set; }
         public string Code { get; set; }

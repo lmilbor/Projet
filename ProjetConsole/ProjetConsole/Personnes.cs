@@ -8,6 +8,7 @@ namespace ProjetConsole
 {
     public class Personnes
     {
+        // Définition des variables et propriétés qui constitue la classe personnes
         #region Propriétés
         public string Code { get; }
         public string Nom { get; }
@@ -17,11 +18,13 @@ namespace ProjetConsole
         #endregion
 
         #region Constructeur
+        // Instancier/créer une nouvelles personne sans pour autant compélter l'ensemble de ses informations
         public Personnes()
         {
 
         }
 
+        // Instancier/créer une nouvelles personne nécessite de compléter les champs suivants
         public Personnes(string code, string prénom, string nom, Métiers métier)
         {
             Code = code;
@@ -33,6 +36,10 @@ namespace ProjetConsole
         #endregion
 
         #region Méthodes
+        /// <summary>
+        /// Redéfinition de la fonction ToString
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return string.Format("{0} {1} {2} {3}",Code, Prénom, Nom, Métier.Intitulé);

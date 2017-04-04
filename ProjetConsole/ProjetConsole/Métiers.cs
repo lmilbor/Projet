@@ -8,6 +8,7 @@ namespace ProjetConsole
 {
 
     [Flags]
+    //Enumération des activtés relatives aux métiers
     public enum Activités
     {
         Aucun = 0,
@@ -26,16 +27,19 @@ namespace ProjetConsole
     public class Métiers
     {
         #region Propriétés
+
+        // Définition des variables et propriétés qui constitue la classe métier
         public String Intitulé { get; set; }
         public Activités ActivitéProduction { get; set; }
         public string Code { get; set; }
         #endregion
 
         #region Constructeurs
-        public Métiers(string intitulé, string abréviation, Activités activitéProduction)
+        // Instancier/créer un nouveau métier nécessite de compléter les champs suivants
+        public Métiers(string intitulé, string code, Activités activitéProduction)
         {
             Intitulé = intitulé;
-            Code = abréviation;
+            Code = code;
             ActivitéProduction = activitéProduction;
         }
 
