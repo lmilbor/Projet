@@ -9,13 +9,10 @@ namespace ProjetConsole
 {
     class DAL
     {
-        #region Champs Privés
-
-        #endregion
 
         #region Propriétés
         // Définition des variables et propriétés qui constitue un projet
-        public List<string> Version { get; set; } //TODO pour l'instant on affiche que des date -> qui à participé, etc.
+        public List<string> Version { get; set; }
         public List<Métiers> ListeMétiers { get; set; }
         public Dictionary<string, Personnes> ListePersonnes { get; set; }
         public Dictionary<string, TachesProduction> ListeTaches { get; set; }
@@ -31,12 +28,10 @@ namespace ProjetConsole
         #endregion
 
         #region Méthodes
-        // Fonction permettant de lire et stocker le fichier "txt" relatif au projet dans un tableau et de la parcourir.
-        
         /// <summary>
         /// Cette fonction permet de récupérer les données du fichier texte et de la les stocker dans des variables afin de les exploiter.
         /// </summary>
-        /// <param name="texte"></param>
+        /// <param name="texte">Chemin du fichier à charger</param>
         public void ChargerFichier(string texte)
         {
             ListeTaches = new Dictionary<string, TachesProduction>();
