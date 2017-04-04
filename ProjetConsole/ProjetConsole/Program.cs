@@ -52,18 +52,18 @@ namespace ProjetConsole
             DAL genomica = new DAL(listeMétiers, listePersonnes);
             genomica.ChargerFichier(@"..\..\Data.txt");
             List<TachesProduction> listeRésultat = new List<TachesProduction>();
-            listeRésultat = genomica.ListeTaches.Select(t => t.Value).ToList(); 
+            listeRésultat = genomica.ListeTaches.Select(t => t.Value).ToList();
             #endregion
 
             #region Initialisation Tâches annexe
             Dictionary<string, TachesAnnexes> tacheAnnexes = new Dictionary<string, TachesAnnexes>();
             bool nouvelleTache = true;
             string temp;
-            while (nouvelleTache)
+            while (nouvelleTache) // Tant qu'on a une nouvelle tache à ajouter la boucle continue
             {
                 Console.WriteLine("Bonjour, avez vous de nouvelles activités annexes (oui ou non).");
                 temp = Console.ReadLine();
-                if (temp.CompareTo("non") != 0 && temp.CompareTo("oui") != 0)
+                if (temp.CompareTo("non") != 0 && temp.CompareTo("oui") != 0) // si on ne répond ni par oui ni par non, on repose la question.
                 {
                     Console.WriteLine("Veuillez répondre par oui ou par non.");
                 }
@@ -71,7 +71,7 @@ namespace ProjetConsole
                 {
                     nouvelleTache = false;
                     Console.Clear();
-                    tacheAnnexes.OrderBy(k => k.Key);
+                    tacheAnnexes.OrderBy(k => k.Key); // on trie les taches annexes et on les affiches.
                     foreach (var item in tacheAnnexes)
                     {
                         Console.WriteLine("code : {0}, {1}", item.Key, item.Value);
@@ -79,35 +79,35 @@ namespace ProjetConsole
                 }
                 else
                 {
-                    Console.WriteLine("Veuillez saisir une nouvelle activité annexe. (libellé)");
+                    Console.WriteLine("Veuillez saisir une nouvelle activité annexe. (libellé)"); // si on a répondue oui, on doit alors rentrer un nouveau libellé de tache.
                     TachesAnnexes tempTache = new TachesAnnexes(Console.ReadLine());
                     tacheAnnexes.Add(tempTache.Code, tempTache);
                 }
             }
-            Console.WriteLine("Appuyez sur une touche pour continuer.");
+            Console.WriteLine("Appuyez sur une touche pour continuer."); // On passe à la suite et on vide l'écran.
             Console.ReadKey();
-            Console.Clear();
             #endregion
 
             #region Affichage des résultats
 
             bool résultatAfficher = true;
-            while (résultatAfficher)
+            while (résultatAfficher) // tant qu'on veut afficher des résultats, on continue la boucle.
             {
+                Console.Clear();
                 Console.WriteLine("Quelle résultat souhaitez-vous voir ?\n 1) Durée de travail réalisée et restante d'une personne sur une version du programme \n 2) Le nombre de jour et le pourcentage d'avance ou de retard sur une version du programme \n 3) Les durée totales de travail réalisée sur la production d'une version du programme pour chaque activité");
                 string résultat = Console.ReadLine();
                 string codePers = "";
                 string verProg = "";
+                Personnes tempPers = new Personnes();
 
-                switch (résultat)
+                switch (résultat) // On compare la demande de l'utilisateur au resultat possible.
                 {
                     case "1":
                         Console.WriteLine("Saisissez le code d'une personne ?");
                         codePers = Console.ReadLine();
                         Console.WriteLine("Saisissez une version du programme ?");
                         verProg = Console.ReadLine();
-                        Personnes tempPers = new Personnes();
-                        listePersonnes.TryGetValue(codePers, out tempPers);
+                        listePersonnes.TryGetValue(codePers, out tempPers); // on rentre la personne correspondante au code rentré par l'utilisateur dans tempPers.
                         Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, tempPers, verProg));
                         break;
 
@@ -122,20 +122,19 @@ namespace ProjetConsole
                         codePers = Console.ReadLine();
                         Console.WriteLine("Saisissez une version du programme svp.");
                         verProg = Console.ReadLine();
-                        Personnes tempPers1 = new Personnes();
-                        listePersonnes.TryGetValue(codePers, out tempPers1);
-                        Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, tempPers1, verProg));
+                        listePersonnes.TryGetValue(codePers, out tempPers); // on rentre la personne correspondante au code rentré par l'utilisateur dans tempPers.
+                        Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, tempPers, verProg));
                         break;
 
                     default:
-                        Console.WriteLine("Attention, entrez 1, 2, 3");
+                        Console.WriteLine("Attention, entrez 1, 2 ou 3"); // si on ne rentre pas 1, 2 ou 3 on repose la question.
                         break;
                 }
                 Console.ReadKey();
                 Console.WriteLine("Avez-vous d'autres résultats à afficher ? (oui, non)");
                 string réponse = Console.ReadLine();
                 if (réponse == "non")
-                    résultatAfficher = false;
+                    résultatAfficher = false; // Si on a plus de résultats à afficher.
             }
             Console.WriteLine("Au revoir. Appuyez sur une touche pour quitter");
             Console.WriteLine("3");
@@ -145,7 +144,7 @@ namespace ProjetConsole
             Console.WriteLine("1");
             Thread.Sleep(1000);
             //Console.ReadKey();
-        } 
+        }
         #endregion
     }
 }
