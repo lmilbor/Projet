@@ -13,6 +13,7 @@ namespace ProjetConsole
         {
 
             #region Initialisation ListeMétiers
+            // Instantiation de la liste des métiers
             Métiers ANA = new Métiers("Analyste", "ANA", Activités.DBE | Activités.ARF | Activités.ANF);
             Métiers CDP = new Métiers("Chef de projet", "CDP", Activités.ARF | Activités.ANF | Activités.ART | Activités.TES | Activités.GDP);
             Métiers DEV = new Métiers("Développeur", "DEV", Activités.ANF | Activités.ART | Activités.ANT | Activités.DEV | Activités.TES);
@@ -22,6 +23,7 @@ namespace ProjetConsole
             #endregion
 
             #region Initialisation ListePersonnes
+            // Instantiation de la liste des personnes
             Personnes GL = new Personnes("GL", "Genevieve", "LECLERCQ", ANA);
             Personnes AF = new Personnes("AF", "Angèle", "FERRAND", ANA);
             Personnes BN = new Personnes("BN", "Balthazar", "NORMAND", CDP);
@@ -32,6 +34,7 @@ namespace ProjetConsole
             Personnes HK = new Personnes("HK", "Hilaire", "KLEIN", TES);
             Personnes NP = new Personnes("NP", "Nino", "PALMER", TES);
 
+            // Création d'un Dictionnaire contenant la liste des personnes et dont la clé sont les initiales
             Dictionary<string, Personnes> listePersonnes = new Dictionary<string, Personnes> {};
             listePersonnes.Add(GL.Code, GL);
             listePersonnes.Add(AF.Code, AF);

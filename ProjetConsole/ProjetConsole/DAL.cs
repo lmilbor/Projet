@@ -14,13 +14,15 @@ namespace ProjetConsole
         #endregion
 
         #region Propriétés
+        // Définition des variables et propriétés qui constitue un projet
         public List<string> Version { get; set; } //TODO pour l'instant on affiche que des date -> qui à participé, etc.
         public List<Métiers> ListeMétiers { get; set; }
         public Dictionary<string, Personnes> ListePersonnes { get; set; }
-        public Dictionary<string, TachesProduction> ListeTaches { get; set; } //TODO Faire un Dico ?
+        public Dictionary<string, TachesProduction> ListeTaches { get; set; }
         #endregion
 
         #region Constructeur
+        // Permet de charger la liste des personnes et des métier relatifs à un projet
         public DAL(List<Métiers> listeMétier, Dictionary<string, Personnes> listePersonne)
         {
             ListeMétiers = listeMétier;
@@ -29,7 +31,12 @@ namespace ProjetConsole
         #endregion
 
         #region Méthodes
-
+        // Fonction permettant de lire et stocker le fichier "txt" relatif au projet dans un tableau et de la parcourir.
+        
+        /// <summary>
+        /// Cette fonction permet de récupérer les données du fichier texte et de la les stocker dans des variables afin de les exploiter.
+        /// </summary>
+        /// <param name="texte"></param>
         public void ChargerFichier(string texte)
         {
             ListeTaches = new Dictionary<string, TachesProduction>();
