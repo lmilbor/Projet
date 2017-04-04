@@ -36,12 +36,13 @@ namespace ProjetConsole
         {
             double jours;
             string retour = "";
-            foreach (var activ in listeTache.Select(a => a.Activité))
+            var activités = listeTache.Where(t => t.Version == version).Select(p => p.Activité).Distinct();
+            foreach(var a in activités)
             {
-                jours = listeTache.Where(t => (t.Version.CompareTo(version) == 0) && (activ == t.Activité)).Sum(j => j.DuréeTravailRéalisé);
-                retour += string.Format("Il y a eu {0} jours de travail pour l'activité {1}.\n", jours, activ);
+                jours = listeTache.Where(t => t.Version == version && t.Activité == a).Sum(p => p.DuréeTravailRéalisé);
+                retour += string.Format("Il y a eu {0} jours de travail pour l'activité {1}.\n", jours, a);
             }
-            return string.Format("Sur la production de la version {0} :\n {1}", version, retour);
+            return string.Format("Sur la production de la version {0} :\n{1}", version, retour);
         }
     }
 }

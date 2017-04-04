@@ -56,7 +56,7 @@ namespace ProjetConsole
             Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, MW, "2.00"));
             Console.WriteLine(Results.Avancement(listeRésultat, "2.00"));
             Console.WriteLine(Results.DuréeTravailActivité(listeRésultat, "1.00"));
-            /*
+
             #region Initialisation Tâches annexe
             Dictionary<string, TachesAnnexes> tacheAnnexes = new Dictionary<string, TachesAnnexes>();
             bool nouvelleTache = true;
@@ -87,7 +87,8 @@ namespace ProjetConsole
                 }
             }
             #endregion
-            */
+
+
             Console.ReadKey();
         }
     }
