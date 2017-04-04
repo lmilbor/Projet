@@ -36,13 +36,19 @@ namespace ProjetConsole
             TachesProduction tache;
             string[] fichier = File.ReadAllLines(texte);
             string[] temp;
+            int compteur;
             Personnes tempPers = new Personnes();
+            Activités[] tabActivité= { Activités.ANF, Activités.ANF, Activités.ARF, Activités.ART, Activités.Aucun, Activités.DBE, Activités.DES, Activités.DEV, Activités.GDP, Activités.INF, Activités.RPT, Activités.TES};
             for (int i = 1; i < fichier.Length - 1; i++)
             {
                 temp = fichier[i].Split('\t');
-                // TODO numéro de tache
                 ListePersonnes.TryGetValue(temp[2], out tempPers);
-                tache = new TachesProduction(temp[0], temp[1], tempPers, temp[4], Convert.ToDateTime(temp[5]), Convert.ToDouble(temp[6]), Convert.ToDouble(temp[7]), Convert.ToDouble(temp[8]));
+                compteur = 0;
+                while (temp[3].CompareTo(string.Format("{0}", tabActivité[compteur])) != 0)
+                {
+                    compteur++;
+                }
+                tache = new TachesProduction(temp[0], temp[1], tempPers, tabActivité[compteur], temp[4], Convert.ToDateTime(temp[5]), Convert.ToDouble(temp[6]), Convert.ToDouble(temp[7]), Convert.ToDouble(temp[8]));
                 ListeTaches.Add(tache.Code, tache);
             }
         }

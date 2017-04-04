@@ -73,7 +73,7 @@ namespace ProjetConsole
         /// </summary>
         /// <param name="duréePrévue"></param>
         /// <param name="duréeRéstante"></param>
-        public TachesProduction(string code, string version, Personnes personne/*, Activités activité*/, string libelléTache, DateTime dateInitiation, double duréePrévue, double duréeRéalisée, double duréeRéstante) : base()
+        public TachesProduction(string code, string version, Personnes personne, Activités activité, string libelléTache, DateTime dateInitiation, double duréePrévue, double duréeRéalisée, double duréeRéstante) : base()
         {
             Personne = new Dictionary<string, Personnes>();
             Code = code;
