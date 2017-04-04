@@ -8,6 +8,13 @@ namespace ProjetConsole
 {
     public static class Results
     {
+        /// <summary>
+        /// Retourne les durées de travail réalisée restante d'une personne sur une version.
+        /// </summary>
+        /// <param name="listeTache">La liste des taches du projet.</param>
+        /// <param name="personne"></param>
+        /// <param name="version"></param>
+        /// <returns></returns>
         public static string DuréeTravailPersonne(List<TachesProduction> listeTache, Personnes personne, string version)
         {
             double duréeRestante, duréeRéalisée;

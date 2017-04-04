@@ -45,7 +45,7 @@ namespace ProjetConsole
         public DateTime DateDébut { get; }
         public double DuréeTravailPrévue { get; }
         public Activités Activité { get; set; }
-        public double DuréeTravailRéstante { get; }
+        public double DuréeTravailRéstante { get; set; }
         //{
         //    get
         //    {

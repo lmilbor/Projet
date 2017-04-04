@@ -35,7 +35,7 @@ namespace ProjetConsole
             Personnes NP = new Personnes("NP", "Nino", "PALMER", TES);
 
             // Création d'un Dictionnaire contenant la liste des personnes et dont la clé sont les initiales
-            Dictionary<string, Personnes> listePersonnes = new Dictionary<string, Personnes> {};
+            Dictionary<string, Personnes> listePersonnes = new Dictionary<string, Personnes> { };
             listePersonnes.Add(GL.Code, GL);
             listePersonnes.Add(AF.Code, AF);
             listePersonnes.Add(BN.Code, BN);
@@ -48,14 +48,10 @@ namespace ProjetConsole
             #endregion
 
             // On charge la liste des personnes et des métiers dans un DAL
-
             DAL genomica = new DAL(listeMétiers, listePersonnes);
             genomica.ChargerFichier(@"C:\Users\lmilbor\OneDrive\Documents\Support de cours\Projets\Data.txt");
             List<TachesProduction> listeRésultat = new List<TachesProduction>();
             listeRésultat = genomica.ListeTaches.Select(t => t.Value).ToList();
-            Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, MW, "2.00"));
-            Console.WriteLine(Results.Avancement(listeRésultat, "2.00"));
-            Console.WriteLine(Results.DuréeTravailActivité(listeRésultat, "1.00"));
 
             #region Initialisation Tâches annexe
             Dictionary<string, TachesAnnexes> tacheAnnexes = new Dictionary<string, TachesAnnexes>();
@@ -86,42 +82,68 @@ namespace ProjetConsole
                     tacheAnnexes.Add(tempTache.Code, tempTache);
                 }
             }
+            Console.WriteLine("Appuyez sur une touche pour continuer.");
+            Console.ReadKey();
+            Console.Clear();
             #endregion
 
-            Console.WriteLine("Quelle résultat souhaitez-vous voir ?\n 1) Durée de travail réalisée et restante d'une personne sur une version du programme \n 2) Le nombre de jour et le pourcentage d'avance ou de retard sur une version du programme \n 3) Les durée totales de travail réalisée sur la production d'une version du programme pour chaque activité");
-            string résultat = Console.ReadLine();
-            switch (résultat)
+            #region Affichage des résultats
+
+            bool résultatAfficher = true;
+            while (résultatAfficher)
             {
-                case "1":
-                    Console.WriteLine("Saisissez le code d'une personne ?");
-                    var CodePers = Console.ReadLine();
-                    Console.WriteLine("Saisissez une version du programme ?");
-                    var VerProg = Console.ReadLine();
-                    Personnes tempPers = new Personnes();
-                    listePersonnes.TryGetValue(CodePers, out tempPers);
-                    Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, tempPers, VerProg));
-                    break;
+                Console.WriteLine("Quelle résultat souhaitez-vous voir ?\n 1) Durée de travail réalisée et restante d'une personne sur une version du programme \n 2) Le nombre de jour et le pourcentage d'avance ou de retard sur une version du programme \n 3) Les durée totales de travail réalisée sur la production d'une version du programme pour chaque activité");
+                string résultat = Console.ReadLine();
+                string codePers = "";
+                string verProg = "";
 
-                case "2":
-                    Console.WriteLine("Saisissez une version du programme svp.");
-                    var VerProg1 = Console.ReadLine();
-                    Console.WriteLine(Results.Avancement(listeRésultat, VerProg1));
-                    break;
+                switch (résultat)
+                {
+                    case "1":
+                        Console.WriteLine("Saisissez le code d'une personne ?");
+                        codePers = Console.ReadLine();
+                        Console.WriteLine("Saisissez une version du programme ?");
+                        verProg = Console.ReadLine();
+                        Personnes tempPers = new Personnes();
+                        listePersonnes.TryGetValue(codePers, out tempPers);
+                        Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, tempPers, verProg));
+                        break;
 
-                case "3":
-                    Console.WriteLine("Saisissez le code d'une personne ?");
-                    var CodePers1 = Console.ReadLine();
-                    Console.WriteLine("Saisissez une version du programme svp.");
-                    var VerProg2 = Console.ReadLine();
-                    Personnes tempPers1 = new Personnes();
-                    listePersonnes.TryGetValue(CodePers1, out tempPers1);
-                    Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, tempPers1, VerProg2));
-                    break;
+                    case "2":
+                        Console.WriteLine("Saisissez une version du programme svp.");
+                        verProg = Console.ReadLine();
+                        Console.WriteLine(Results.Avancement(listeRésultat, verProg));
+                        break;
 
-                default:
-                    Console.WriteLine("Attention, entrez 1, 2, 3");
-                    break;
+                    case "3":
+                        Console.WriteLine("Saisissez le code d'une personne ?");
+                        codePers = Console.ReadLine();
+                        Console.WriteLine("Saisissez une version du programme svp.");
+                        verProg = Console.ReadLine();
+                        Personnes tempPers1 = new Personnes();
+                        listePersonnes.TryGetValue(codePers, out tempPers1);
+                        Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, tempPers1, verProg));
+                        break;
+
+                    default:
+                        Console.WriteLine("Attention, entrez 1, 2, 3");
+                        break;
+                }
+                Console.ReadKey();
+                Console.WriteLine("Avez-vous d'autres résultats à afficher ? (oui, non)");
+                string réponse = Console.ReadLine();
+                if (réponse == "non")
+                    résultatAfficher = false;
             }
-        }
+            Console.WriteLine("Au revoir. Appuyez sur une touche pour quitter");
+            Console.WriteLine("3");
+            Thread.Sleep(1000);
+            Console.WriteLine("2");
+            Thread.Sleep(1000);
+            Console.WriteLine("1");
+            Thread.Sleep(1000);
+            //Console.ReadKey();
+        } 
+        #endregion
     }
 }
