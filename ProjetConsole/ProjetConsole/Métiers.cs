@@ -8,7 +8,7 @@ namespace ProjetConsole
 {
 
     [Flags]
-    public enum Activité
+    public enum Activités
     {
         Aucun = 0,
         DBE = 1,
@@ -27,12 +27,12 @@ namespace ProjetConsole
     {
         #region Propriétés
         public String Intitulé { get; set; }
-        public Activité ActivitéProduction { get; set; }
+        public Activités ActivitéProduction { get; set; }
         public string Code { get; set; }
         #endregion
 
         #region Constructeurs
-        public Métiers(string intitulé, string abréviation, Activité activitéProduction)
+        public Métiers(string intitulé, string abréviation, Activités activitéProduction)
         {
             Intitulé = intitulé;
             Code = abréviation;

@@ -9,9 +9,11 @@ namespace ProjetConsole
     public abstract class Taches
     {
         #region Propriétés
-        public double DuréeTravailRéalisé { get; }
+        public double DuréeTravailRéalisé { get; set; }
         public string LibTache { get; set; }
         public string Code { get; set; }
+        public string Version { get; set; }
+        public Dictionary<string,Personnes> Personne { get; set; }
         #endregion
 
         #region Constructeurs
@@ -36,41 +38,53 @@ namespace ProjetConsole
         #region Propriétés
         public DateTime DateDébut { get; }
         public double DuréeTravailPrévue { get; }
-        public double DuréeTravailRéstante
-        {
-            get
-            {
-                return DuréeTravailRéstante;
-            }
+        public Activités Activité { get; set; }
+        public double DuréeTravailRéstante { get; }
+        //{
+        //    get
+        //    {
+        //        return DuréeTravailRéstante;
+        //    }
 
-            set
-            {
-                DuréeTravailRéstante = (DateDébut - DateTime.Now).TotalDays; // TODO à Corriger Attention au arrondi du double ( 0 != 0)
-            }
-        }
-        public bool TacheTerminée
-        {
-            get
-            {
-                if (DuréeTravailRéstante == 0)
-                    return true;
-                else
-                    return false;
-            }
-        }
+        //    set
+        //    {
+        //        DuréeTravailRéstante = value;// (DateDébut - DateTime.Now).TotalDays; // TODO à Corriger Attention au arrondi du double ( 0 != 0)
+        //    }
+        //}
+        //public bool TacheTerminée
+        //{
+        //    get
+        //    {
+        //        if (DuréeTravailRéstante == 0)
+        //            return true;
+        //        else
+        //            return false;
+        //    }
+        //}
         #endregion
 
         #region Constructeur
+        //public TachesProduction()
+        //{
+
+        //}
         /// <summary>
         /// TODO
         /// </summary>
         /// <param name="duréePrévue"></param>
         /// <param name="duréeRéstante"></param>
-        public TachesProduction(int duréePrévue, int duréeRéstante, DateTime dateInitiation) : base()
+        public TachesProduction(string code, string version, Personnes personne/*, Activités activité*/, string libelléTache, DateTime dateInitiation, double duréePrévue, double duréeRéalisée, double duréeRéstante) : base()
         {
-            DuréeTravailPrévue = duréePrévue;
-            DuréeTravailRéstante = duréeRéstante;
+            Personne = new Dictionary<string, Personnes>();
+            Code = code;
+            Version = version;
+            Personne.Add(personne.Code, personne);
+            //Activité = activité;
+            LibTache = libelléTache;
             DateDébut = dateInitiation;
+            DuréeTravailPrévue = duréePrévue;
+            DuréeTravailRéalisé = duréeRéalisée;
+            DuréeTravailRéstante = duréeRéstante;
         }
         #endregion
     }

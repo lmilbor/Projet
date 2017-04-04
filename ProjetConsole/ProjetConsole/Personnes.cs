@@ -17,6 +17,10 @@ namespace ProjetConsole
         #endregion
 
         #region Constructeur
+        public Personnes()
+        {
+
+        }
 
         public Personnes(string code, string prénom, string nom, Métiers métier)
         {

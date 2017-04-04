@@ -13,17 +13,17 @@ namespace ProjetConsole
         {
 
             #region Initialisation ListeMétiers
-            Métiers ANA = new Métiers("Analyste", "ANA", Activité.DBE | Activité.ARF | Activité.ANF);
-            Métiers CDP = new Métiers("Chef de projet", "CDP", Activité.ARF | Activité.ANF | Activité.ART | Activité.TES | Activité.GDP);
-            Métiers DEV = new Métiers("Développeur", "DEV", Activité.ANF | Activité.ART | Activité.ANT | Activité.DEV | Activité.TES);
-            Métiers DES = new Métiers("Designer", "DES", Activité.ANF | Activité.DES | Activité.INF);
-            Métiers TES = new Métiers("Testeur", "TES", Activité.RPT | Activité.TES);
+            Métiers ANA = new Métiers("Analyste", "ANA", Activités.DBE | Activités.ARF | Activités.ANF);
+            Métiers CDP = new Métiers("Chef de projet", "CDP", Activités.ARF | Activités.ANF | Activités.ART | Activités.TES | Activités.GDP);
+            Métiers DEV = new Métiers("Développeur", "DEV", Activités.ANF | Activités.ART | Activités.ANT | Activités.DEV | Activités.TES);
+            Métiers DES = new Métiers("Designer", "DES", Activités.ANF | Activités.DES | Activités.INF);
+            Métiers TES = new Métiers("Testeur", "TES", Activités.RPT | Activités.TES);
             List<Métiers> listeMétiers = new List<Métiers> { ANA, CDP, DEV, DES, TES };
             #endregion
 
             #region Initialisation ListePersonnes
             Personnes GL = new Personnes("GL", "Genevieve", "LECLERCQ", ANA);
-            Personnes AL = new Personnes("AL", "Angèle", "FERRAND", ANA);
+            Personnes AF = new Personnes("AF", "Angèle", "FERRAND", ANA);
             Personnes BN = new Personnes("BN", "Balthazar", "NORMAND", CDP);
             Personnes RF = new Personnes("RF", "Raymond", "FISHER", DEV);
             Personnes LB = new Personnes("LB", "Lucien", "BUTLER", DEV);
@@ -31,12 +31,28 @@ namespace ProjetConsole
             Personnes MW = new Personnes("MW", "Marguerite", "WEBER", DES);
             Personnes HK = new Personnes("HK", "Hilaire", "KLEIN", TES);
             Personnes NP = new Personnes("NP", "Nino", "PALMER", TES);
-            List<Personnes> listePersonnes = new List<Personnes> { GL, AL, BN, RF, LB, RB, MW, HK, NP };
+
+            Dictionary<string, Personnes> listePersonnes = new Dictionary<string, Personnes> {};
+            listePersonnes.Add(GL.Code, GL);
+            listePersonnes.Add(AF.Code, AF);
+            listePersonnes.Add(BN.Code, BN);
+            listePersonnes.Add(RF.Code, RF);
+            listePersonnes.Add(LB.Code, LB);
+            listePersonnes.Add(RB.Code, RB);
+            listePersonnes.Add(MW.Code, MW);
+            listePersonnes.Add(HK.Code, HK);
+            listePersonnes.Add(NP.Code, NP);
             #endregion
 
             // On charge la liste des personnes et des métiers dans un DAL
-            DAL genomica = new DAL(listeMétiers, listePersonnes);
 
+            DAL genomica = new DAL(listeMétiers, listePersonnes);
+            genomica.ChargerFichier(@"C:\Users\lmilbor\OneDrive\Documents\Support de cours\Projets\Data.txt");
+            List<TachesProduction> listeRésultat = new List<TachesProduction>();
+            listeRésultat =  genomica.ListeTaches.Select(t => t.Value).ToList();
+            Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat , MW, "2.00"));
+            Console.WriteLine(Results.Avancement(listeRésultat, "2.00"));
+            /*
             #region Initialisation Tâches annexe
             Dictionary<string, TachesAnnexes> tacheAnnexes = new Dictionary<string, TachesAnnexes>();
             bool nouvelleTache = true;
@@ -67,7 +83,7 @@ namespace ProjetConsole
                 }
             }
             #endregion
-
+            */
             Console.ReadKey();
         }
     }
