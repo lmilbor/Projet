@@ -11,9 +11,9 @@ namespace ProjetConsole
         /// <summary>
         /// Retourne les durées de travail réalisée restante d'une personne sur une version.
         /// </summary>
-        /// <param name="listeTache">La liste des taches du projet.</param>
+        /// <param name="listeTache">La liste des taches du projet</param>
         /// <param name="personne"></param>
-        /// <param name="version"></param>
+        /// <param name="version">Numéro de version</param>
         /// <returns></returns>
         public static string DuréeTravailPersonne(List<TachesProduction> listeTache, Personnes personne, string version)
         {
@@ -23,7 +23,12 @@ namespace ProjetConsole
             duréeRestante = listeTache.Where(t => (t.Version.CompareTo(version) == 0) && (t.Personne.TryGetValue(personne.Code, out tempPers))).Sum(d => d.DuréeTravailRéstante);
             return String.Format("Pour la version {0}, {1} a efféctué(e) {2} jours de travail, il lui reste {3} jours.", version, personne.Code, duréeRéalisée, duréeRestante);
         }
-
+        /// <summary>
+        /// Le nombre de jours et le pourcentage d'avance ou de retard sur une version.
+        /// </summary>
+        /// <param name="listeTache">La liste des taches du projet</param>
+        /// <param name="version">numéro de version</param>
+        /// <returns></returns>
         public static string Avancement(List<TachesProduction> listeTache, string version)
         {
             double jours;
@@ -38,7 +43,12 @@ namespace ProjetConsole
             else
                 return string.Format("Pour la version {0} le retard est de {1}% soit {2} jours de travail.", version, Math.Round(pourcentage - 100, 2), -jours);
         }
-
+        /// <summary>
+        /// Les durées totales de travail réalisées sur la production d'une version, pour chaque activité.
+        /// </summary>
+        /// <param name="listeTache">La liste des taches du projet</param>
+        /// <param name="version">numéro de version</param>
+        /// <returns></returns>
         public static string DuréeTravailActivité(List<TachesProduction> listeTache, string version)
         {
             double jours;

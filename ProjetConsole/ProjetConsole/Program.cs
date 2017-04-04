@@ -47,11 +47,13 @@ namespace ProjetConsole
             listePersonnes.Add(NP.Code, NP);
             #endregion
 
+            #region Chargement des données dans un DAL
             // On charge la liste des personnes et des métiers dans un DAL
             DAL genomica = new DAL(listeMétiers, listePersonnes);
-            genomica.ChargerFichier(@"C:\Users\lmilbor\OneDrive\Documents\Support de cours\Projets\Data.txt");
+            genomica.ChargerFichier(@"..\..\Data.txt");
             List<TachesProduction> listeRésultat = new List<TachesProduction>();
-            listeRésultat = genomica.ListeTaches.Select(t => t.Value).ToList();
+            listeRésultat = genomica.ListeTaches.Select(t => t.Value).ToList(); 
+            #endregion
 
             #region Initialisation Tâches annexe
             Dictionary<string, TachesAnnexes> tacheAnnexes = new Dictionary<string, TachesAnnexes>();

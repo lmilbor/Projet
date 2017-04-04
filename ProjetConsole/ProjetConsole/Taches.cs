@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
+    // Définition abstraite d'une tache
     public abstract class Taches
     {
         #region Propriétés
@@ -46,39 +47,10 @@ namespace ProjetConsole
         public double DuréeTravailPrévue { get; }
         public Activités Activité { get; set; }
         public double DuréeTravailRéstante { get; set; }
-        //{
-        //    get
-        //    {
-        //        return DuréeTravailRéstante;
-        //    }
 
-        //    set
-        //    {
-        //        DuréeTravailRéstante = value;// (DateDébut - DateTime.Now).TotalDays; // TODO à Corriger Attention au arrondi du double ( 0 != 0)
-        //    }
-        //}
-        //public bool TacheTerminée
-        //{
-        //    get
-        //    {
-        //        if (DuréeTravailRéstante == 0)
-        //            return true;
-        //        else
-        //            return false;
-        //    }
-        //} TODO A revoir!
         #endregion
 
         #region Constructeur
-        //public TachesProduction()
-        //{
-
-        //}
-        /// <summary>
-        /// TODO
-        /// </summary>
-        /// <param name="duréePrévue"></param>
-        /// <param name="duréeRéstante"></param>
         
         // Instancier/créer une nouvelles tache relative à la production nécessite de compléter les champs suivants
         public TachesProduction(string code, string version, Personnes personne, Activités activité, string libelléTache, DateTime dateInitiation, double duréePrévue, double duréeRéalisée, double duréeRéstante) : base()
@@ -97,9 +69,10 @@ namespace ProjetConsole
         #endregion
     }
 
-    // ??
+    // Définition d'une tache annexe heritant de Taches
     public class TachesAnnexes : Taches
     {
+        // champs privé (ici juste un compteur static pour que chaque tache annexe ait un identifiant unique sous la forme : AN suivi d'un numéro unique.
         public static int _idTache = 0;
         #region Propriétés
         public double DuréeTravailRéaliséMensuelle
@@ -117,12 +90,12 @@ namespace ProjetConsole
         #endregion
 
         #region Constructeur
-        //??
+        // Constructeur nécessaire pour incrémenter le compteur statique à chaque création de tache annexe.
         public TachesAnnexes() : base()
         {
             DuréeTravailRéaliséMensuelle = 0;
             _idTache++;
-            Code = string.Format("AN" + _idTache);
+            Code = string.Format("AN" + _idTache); //on donne à la tache son identifiant unique.
         }
         public TachesAnnexes(string libellé) :this()
         {

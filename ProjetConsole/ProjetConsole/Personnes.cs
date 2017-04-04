@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetConsole
 {
+    // Définition d'une personne
     public class Personnes
     {
         // Définition des variables et propriétés qui constitue la classe personnes

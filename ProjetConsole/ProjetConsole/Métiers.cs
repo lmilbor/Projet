@@ -32,6 +32,7 @@ namespace ProjetConsole
         public String Intitulé { get; set; }
         public Activités ActivitéProduction { get; set; }
         public string Code { get; set; }
+
         #endregion
 
         #region Constructeurs
@@ -42,8 +43,6 @@ namespace ProjetConsole
             Code = code;
             ActivitéProduction = activitéProduction;
         }
-
-
 
         #endregion
     }
