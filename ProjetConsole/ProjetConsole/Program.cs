@@ -52,7 +52,7 @@ namespace ProjetConsole
             listeRésultat = genomica.ListeTaches.Select(t => t.Value).ToList();
             Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, MW, "2.00"));
             Console.WriteLine(Results.Avancement(listeRésultat, "2.00"));
-            Console.WriteLine(Activités.DBE);
+            Console.WriteLine(Results.DuréeTravailActivité(listeRésultat, "1.00"));
             /*
             #region Initialisation Tâches annexe
             Dictionary<string, TachesAnnexes> tacheAnnexes = new Dictionary<string, TachesAnnexes>();

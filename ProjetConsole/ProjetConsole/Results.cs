@@ -14,7 +14,7 @@ namespace ProjetConsole
             Personnes tempPers = new Personnes();
             duréeRéalisée = listeTache.Where(t => (t.Version.CompareTo(version) == 0) && (t.Personne.TryGetValue(personne.Code, out tempPers))).Sum(d => d.DuréeTravailRéalisé);
             duréeRestante = listeTache.Where(t => (t.Version.CompareTo(version) == 0) && (t.Personne.TryGetValue(personne.Code, out tempPers))).Sum(d => d.DuréeTravailRéstante);
-            return  String.Format("Pour la version {0}, {1} a efféctué(e) {2} jours de travail, il lui reste {3} jours.",version, personne.Code, duréeRéalisée, duréeRestante);
+            return String.Format("Pour la version {0}, {1} a efféctué(e) {2} jours de travail, il lui reste {3} jours.", version, personne.Code, duréeRéalisée, duréeRestante);
         }
 
         public static string Avancement(List<TachesProduction> listeTache, string version)
@@ -29,14 +29,19 @@ namespace ProjetConsole
                 return string.Format("Pour la version {0} l'avancement est de {1}% soit {2} jours de travail.", version, Math.Round(pourcentage, 2), jours);
             }
             else
-                return string.Format("Pour la version {0} le retard est de {1}% soit {2} jours de travail.", version, Math.Round(pourcentage-100, 2), -jours);
+                return string.Format("Pour la version {0} le retard est de {1}% soit {2} jours de travail.", version, Math.Round(pourcentage - 100, 2), -jours);
         }
 
         public static string DuréeTravailActivité(List<TachesProduction> listeTache, string version)
         {
             double jours;
-            jours = listeTache.Where( t => t.Version.CompareTo(version) ==0).Select()
-            return "";
+            string retour = "";
+            foreach (var activ in listeTache.Select(a => a.Activité))
+            {
+                jours = listeTache.Where(t => (t.Version.CompareTo(version) == 0) && (activ == t.Activité)).Sum(j => j.DuréeTravailRéalisé);
+                retour += string.Format("Il y a eu {0} jours de travail pour l'activité {1}.\n", jours, activ);
+            }
+            return string.Format("Sur la production de la version {0} :\n {1}", version, retour);
         }
     }
 }
