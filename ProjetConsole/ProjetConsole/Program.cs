@@ -88,8 +88,40 @@ namespace ProjetConsole
             }
             #endregion
 
+            Console.WriteLine("Quelle résultat souhaitez-vous voir ?\n 1) Durée de travail réalisée et restante d'une personne sur une version du programme \n 2) Le nombre de jour et le pourcentage d'avance ou de retard sur une version du programme \n 3) Les durée totales de travail réalisée sur la production d'une version du programme pour chaque activité");
+            string résultat = Console.ReadLine();
+            switch (résultat)
+            {
+                case "1":
+                    Console.WriteLine("Saisissez le code d'une personne ?");
+                    var CodePers = Console.ReadLine();
+                    Console.WriteLine("Saisissez une version du programme ?");
+                    var VerProg = Console.ReadLine();
+                    Personnes tempPers = new Personnes();
+                    listePersonnes.TryGetValue(CodePers, out tempPers);
+                    Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, tempPers, VerProg));
+                    break;
 
-            Console.ReadKey();
+                case "2":
+                    Console.WriteLine("Saisissez une version du programme svp.");
+                    var VerProg1 = Console.ReadLine();
+                    Console.WriteLine(Results.Avancement(listeRésultat, VerProg1));
+                    break;
+
+                case "3":
+                    Console.WriteLine("Saisissez le code d'une personne ?");
+                    var CodePers1 = Console.ReadLine();
+                    Console.WriteLine("Saisissez une version du programme svp.");
+                    var VerProg2 = Console.ReadLine();
+                    Personnes tempPers1 = new Personnes();
+                    listePersonnes.TryGetValue(CodePers1, out tempPers1);
+                    Console.WriteLine(Results.DuréeTravailPersonne(listeRésultat, tempPers1, VerProg2));
+                    break;
+
+                default:
+                    Console.WriteLine("Attention, entrez 1, 2, 3");
+                    break;
+            }
         }
     }
 }
